@@ -27,7 +27,7 @@ int main(){
     delete [] arr;  //deallocazione dinamica
 
     cout << *pt << endl;
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < 4; i++){
         cout << arr[i] << "\t";
     }
     cout << endl;
