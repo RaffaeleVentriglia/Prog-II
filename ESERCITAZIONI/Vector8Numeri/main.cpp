@@ -6,10 +6,11 @@
 using namespace std;
 
 int main(){
+    system("clear");
     vector <int> arr;
     int num;
     float somma = 0;
-    double media = 0.0;
+    double media = 0;
     cout << "È possibile inserire solo 8 elementi" << endl;
     for(int i = 0; i < 8; i++){
         cout << "Inserire numero: ";
