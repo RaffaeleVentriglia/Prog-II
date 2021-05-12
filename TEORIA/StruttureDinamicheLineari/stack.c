@@ -1,9 +1,6 @@
 #include <stdio.h>
 #define Max_Stack_Size 100
 
-// con questa funzione si rende l'array
-// invertito, in modo tale da sembrare una pila
-// che è gestita con politica LIFO
 void inverte_array(int [], int);
 void push(int, int [], int *);
 void pop(int *, int [], int *);
