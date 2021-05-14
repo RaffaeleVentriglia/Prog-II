@@ -124,5 +124,5 @@ void visualizza(struct persona *p){
         printf(" -> ");
         p = p -> next;
     }
-    printf("NULL");
+    printf("NULL\n");
 }
