@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 char char_low_up(char);
 
@@ -13,6 +14,8 @@ int main(int argc, char *argv[]){
 }
 
 char char_low_up(char t){
-	int conv = 32;
-	printf("Carattere convertito: %c\n", t^conv);
+	if(!isalpha(t)){
+		return t;
+	}
+	return t^32;
 }
