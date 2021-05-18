@@ -1,3 +1,8 @@
+/*
+    Costruire la classe ContoBanca per descrivere le operazioni su un
+    conto corrente bancario.
+*/
+
 #include "main.hpp"
 
 int main(){
