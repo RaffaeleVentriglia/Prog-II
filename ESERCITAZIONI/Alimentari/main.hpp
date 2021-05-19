@@ -4,18 +4,20 @@ using namespace std;
 
 
 class articoli {
-    public:
+    protected:
         string codiceBarre;
         string descrizione;
         float prezzo;
+    public:
         virtual void setInfo(string, string, float) = 0;
         virtual void getInfo() = 0;
         virtual float sconta() = 0;
 };
 
 class alimentari : public articoli {
-    public:
+    protected:
         int annoScadenza;
+    public:
         void setInfo(string, string, float);
         void getInfo();
         void setAnno(int);

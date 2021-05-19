@@ -30,9 +30,9 @@ int main(){
     alimentari a1;
 
     cout << "Inserire codice a barre: ";
-    cin >> codice;
+    getline(cin, codice);
     cout << "Inserire descrizione prodotto (vetro, plastica, carta o altro materiale): ";
-    cin >> descrizione;
+    getline(cin, descrizione);
     cout << "Inserire il prezzo: ";
     cin >> prezzo;
     a1.setInfo(codice, descrizione, prezzo);
