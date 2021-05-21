@@ -25,7 +25,7 @@ class alimentari : public articoli {
         float sconta();
 };
 
-/* class nonAlimentari : public articoli {
+class nonAlimentari : public articoli {
     public:
         string materiale;
         void setInfo(string, string, float);
@@ -33,12 +33,12 @@ class alimentari : public articoli {
         void setMateriale(string);
         string getMateriale();
         float sconta();
-}; */
+};
 
 void alimentari::setInfo(string codice, string descrizione, float prezzo){
-    codice = this -> codiceBarre;
-    descrizione = this -> descrizione;
-    prezzo = this -> prezzo;
+    this -> codiceBarre = codice;
+    this -> descrizione = descrizione;
+    this -> prezzo = prezzo;
 }
 
 void alimentari::getInfo(){
@@ -74,7 +74,7 @@ int alimentari::getAnno(){
     return this -> annoScadenza;
 }
 
-/* float nonAlimentari::sconta(){
+float nonAlimentari::sconta(){
     bool carta;
     float sconto;
     cout << "Il cliente ha la carta fedeltà? " << endl;
@@ -102,13 +102,13 @@ string nonAlimentari::getMateriale(){
 }
 
 void articoli::setInfo(string codiceBarre, string descrizione, float prezzo){
-    codiceBarre = this -> codiceBarre;
-    descrizione = this -> descrizione;
-    prezzo = this -> prezzo;
+    this -> codiceBarre = codiceBarre;
+    this -> descrizione = descrizione;
+    this -> prezzo = prezzo;
 }
 
 void articoli::getInfo(){
     cout << "Codice a barre: " << this -> codiceBarre << endl;
     cout << "Descrizione: " << this -> descrizione << endl;
     cout << "Prezzo: €" << this -> prezzo << endl;
-} */
+}
