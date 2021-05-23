@@ -39,7 +39,7 @@ BTREE create_tree(DATA a[], int i, int size){
 void inorder(BTREE root){
     if(root != NULL){
         inorder(root -> left);
-        printf("%c -> ", root -> d);
+        printf("%c --> ", root -> d);
         inorder(root -> right);
     }
 }
