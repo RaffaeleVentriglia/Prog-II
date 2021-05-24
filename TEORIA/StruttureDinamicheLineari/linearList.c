@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-
 typedef struct {
     char nome[20];
     int eta;
@@ -15,8 +13,6 @@ struct persona {
 };
 struct persona *crea_lista();
 void visualizza(struct persona *);
-
-
 
 
 // esempio statico
@@ -33,8 +29,6 @@ struct Prenotazioni {
 struct Prenotazioni utente[50];
 struct Prenotazioni *p_p = &utente[0];
 //p_p = &utente;
-
-
 
 
 int main(){
@@ -77,12 +71,10 @@ int main(){
 
 
 
-
     //collegamenti della lista statica
     el1.next = &el2;
     el2.next = &el3;
     el3.next = NULL;
-
 
     return 0;
 }
