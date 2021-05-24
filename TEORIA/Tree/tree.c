@@ -82,5 +82,10 @@ int main(){
     free(n2);
     free(n3);
     free(n4);
+    free(n5);
+    free(n6);
+    free(n7);
+    free(n8);
+    
     return 0;
 }
