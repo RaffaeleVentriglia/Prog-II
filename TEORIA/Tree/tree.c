@@ -18,7 +18,7 @@ tree *createTree(int value) {
     return result;
 }
 
-void printTree(tree *root){
+/* void printTree(tree *root){
     if(root == NULL){
         printf("---vuoto---\n");
         return;
@@ -29,6 +29,33 @@ void printTree(tree *root){
         printTree(root -> child[i]);
         printf("done\n");
     }
+} */
+
+void printTabs(int numTabs){
+    for(int i = 0; i < numTabs; i++){
+        printf("\t");
+    }
+}
+
+void printTree_rec(tree *root, int level){
+    if(root == NULL){
+        printTabs(level);
+        printf("---vuoto---\n");
+        return;
+    }
+    printTabs(level);
+    printf("value: %d\n", root -> value);
+    for(int i = 0; i < N; i++){
+        printTabs(level);
+        printf("child %d \n", i);
+        printTree_rec(root -> child[i], level+1);
+        printTabs(level);
+        printf("done\n");
+    }
+}
+
+void printTree(tree* root){
+    printTree_rec(root, 0);
 }
 
 int main(){
@@ -37,11 +64,17 @@ int main(){
     tree *n3 = createTree(15);
     tree *n4 = createTree(20);
     tree *n5 = createTree(25);
+    tree *n6 = createTree(30);
+    tree *n7 = createTree(35);
+    tree *n8 = createTree(40);
 
     n1 -> child[0] = n2;
     n1 -> child[1] = n3;
-    n3 -> child[0] = n4;
-    n3 -> child[1] = n5;
+    n1 -> child[2] = n4;
+
+    n5 -> child[0] = n6;
+    n5 -> child[1] = n7;
+    n5 -> child[2] = n8;
 
     printTree(n1);
 
