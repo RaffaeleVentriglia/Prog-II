@@ -11,8 +11,44 @@ struct persona {
     INFO_FIELD info;
     struct persona *next;
 };
-struct persona *crea_lista();
-void visualizza(struct persona *);
+
+void ins_testa(INFO_FIELD, struct persona **);
+void ins_nodo(INFO_FIELD, struct persona **);
+
+struct persona *crea_lista(){
+    struct persona *head, *punt;
+    int i, n;
+
+    printf("Numero di persone da inserire: ");
+    scanf("%d", &n);
+
+    if(n == 0){
+        head = NULL;
+    } else {
+        head = (struct persona *)malloc(sizeof(struct persona));
+        printf("Inserire elemento: ");
+        scanf("%d", &head -> info.eta);
+        punt = head;
+        for(i = 1; i < n; i++){
+            punt -> next = (struct persona *)malloc(sizeof(struct persona));
+            punt = punt -> next;
+            printf("Inserire elemento: ");
+            scanf("%d", &punt -> info.eta);
+        }
+        punt -> next = NULL;
+    }
+    return(head);
+}
+
+void visualizza(struct persona *p){
+    printf("Lista -> ");
+    while(p != NULL){
+        printf("%d", p -> info.eta);
+        printf(" -> ");
+        p = p -> next;
+    }
+    printf("NULL\n");
+}
 
 
 // esempio statico
@@ -60,15 +96,11 @@ int main(){
     lista = crea_lista();
     visualizza(lista);
 
-
-
-    //char *name[] = {"Raffaele", "Filippo", "Davide"};
+    //char *name[] = {"Giovanni", "Nicola", "Raffaele"};
     //int age[] = {20, 15, 7};
-
 
     //void ins_testa(INFO_FIELD, struct persona **);
     //void ins_nodo(INFO_FIELD, struct persona **);
-
 
 
     //collegamenti della lista statica
@@ -77,44 +109,4 @@ int main(){
     el3.next = NULL;
 
     return 0;
-}
-
-
-
-
-
-
-struct persona *crea_lista(){
-    struct persona *head, *punt;
-    int i, n;
-
-    printf("Numero di persone da inserire: ");
-    scanf("%d", &n);
-
-    if(n == 0){
-        head = NULL;
-    } else {
-        head = (struct persona *)malloc(sizeof(struct persona));
-        printf("Inserire il primo elemento: ");
-        scanf("%d", &head -> info.eta);
-        punt = head;
-        for(i = 1; i < n; i++){
-            punt -> next = (struct persona *)malloc(sizeof(struct persona));
-            punt = punt -> next;
-            printf("Inserire il %d elemento: ", i);
-            scanf("%d", &punt -> info.eta);
-        }
-        punt -> next = NULL;
-    }
-    return(head);
-}
-
-void visualizza(struct persona *p){
-    printf("Lista -> ");
-    while(p != NULL){
-        printf("%d", p -> info.eta);
-        printf(" -> ");
-        p = p -> next;
-    }
-    printf("NULL\n");
 }
