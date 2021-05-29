@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct nodo {  // struttura per la rappresentazione di un nodo
+// struttura per la rappresentazione di un nodo
+typedef struct nodo {
     int data;     // informazione contenuta nel nodo corrente
     struct nodo *sx;     // puntatore al figlio sinistro
     struct nodo *dx;     // puntatore al figlio destro
@@ -23,12 +24,33 @@ tree albero_vuoto(){
     return (NULL);
 }
 
+void preorder(tree radice){
+    if(radice != NULL){
+        printf("alore: %d/n", radice -> data);
+        preorder(radice -> sx);
+        preorder(radice -> dx);
+    }
+}
+
+void postorder(tree radice){
+    postorder(radice -> sx);
+    postorder(radice -> dx);
+    printf("valore: %d/n", radice -> data);
+}
+
+void inorder(tree radice){
+    inorder(radice -> sx);
+    printf("alore: %d/n", radice -> data);
+    inorder(radice -> dx);
+}
+
 int main(){
 
     // costruzione di un albero con radice 5, sx: 7 e dx: 3
     tree t1, t2, t3;
+    t1 = costruisci_albero(5, t2, t3);
     t2 = costruisci_albero(7, albero_vuoto(), albero_vuoto());
     t3 = costruisci_albero(3, albero_vuoto(), albero_vuoto());
-    t1 = costruisci_albero(5, t2, t3);
+    inorder(t3);
     return 0;
 }
