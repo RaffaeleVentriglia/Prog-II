@@ -3,10 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct {  // struttura per la rappresentazione di un nodo
+typedef struct nodo {  // struttura per la rappresentazione di un nodo
     int data;  // informazione contenuta nel nodo corrente
     nodo *child;  // nodo padre del nodo corrente
 } nodo;
+
+typedef nodo* tree;
 
 int main(){
     

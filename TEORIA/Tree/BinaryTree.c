@@ -13,7 +13,8 @@ typedef struct nodo {
 typedef nodo* tree;  // in questo modo avremo la variabile tree puntatore a variabile di tipo nodo
 
 tree costruisci_albero(int data, tree sx, tree dx){
-    tree radice = (nodo *)malloc(sizeof(nodo));  // allochiamo spazio in memoria per la costruzione della radice
+    tree radice;  
+    radice = (nodo *)malloc(sizeof(nodo));  // allochiamo spazio in memoria per la costruzione della radice
     radice -> data = data;  // assegniamo data passato come parametro al data puntato da radice
     radice -> sx = sx;      // assegniamo sx passato come parametro a sx puntato da radice
     radice -> dx = dx;      // assegniamo dx passato come parametro a dx puntato da radice
@@ -26,31 +27,42 @@ tree albero_vuoto(){
 
 void preorder(tree radice){
     if(radice != NULL){
-        printf("alore: %d/n", radice -> data);
+        printf("valore: %d\n", radice -> data);
         preorder(radice -> sx);
         preorder(radice -> dx);
     }
 }
 
 void postorder(tree radice){
-    postorder(radice -> sx);
-    postorder(radice -> dx);
-    printf("valore: %d/n", radice -> data);
+    if(radice != NULL){
+        postorder(radice -> sx);
+        postorder(radice -> dx);
+        printf("valore: %d\n", radice -> data);
+    }
+    
 }
 
 void inorder(tree radice){
-    inorder(radice -> sx);
-    printf("alore: %d/n", radice -> data);
-    inorder(radice -> dx);
+    if(radice != NULL){
+        inorder(radice -> sx);
+        printf("valore: %d\n", radice -> data);
+        inorder(radice -> dx);
+    }
 }
 
 int main(){
+    system("clear");
 
-    // costruzione di un albero con radice 5, sx: 7 e dx: 3
-    tree t1, t2, t3;
+    tree t1, t2, t3, t4;
+    t2 = costruisci_albero(3, albero_vuoto(), albero_vuoto());
+    t3 = costruisci_albero(7, albero_vuoto(), albero_vuoto());
     t1 = costruisci_albero(5, t2, t3);
-    t2 = costruisci_albero(7, albero_vuoto(), albero_vuoto());
-    t3 = costruisci_albero(3, albero_vuoto(), albero_vuoto());
-    inorder(t3);
+
+    printf("POSTORDER\n");
+    postorder(t1);
+    printf("\nPREORDER\n");
+    preorder(t1);
+    printf("\nINORDER\n");
+    inorder(t1);
     return 0;
 }
